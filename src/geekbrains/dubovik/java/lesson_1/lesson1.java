@@ -1,6 +1,6 @@
 package geekbrains.dubovik.java.lesson_1;
 
-public class lesson_1 {
+public class lesson1 {
     public static void main(String[] args) {
         Human human = new Human("Kolya");
         Robot robot = new Robot("Verter");
