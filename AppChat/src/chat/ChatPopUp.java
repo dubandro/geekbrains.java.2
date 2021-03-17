@@ -9,14 +9,17 @@ import javafx.util.Pair;
 
 import java.util.Optional;
 
+import static javafx.scene.control.ButtonType.CANCEL;
+
 public class ChatPopUp {
 
     public static void loginDialog() {
+
         // Create the custom dialog
         Dialog<Pair<String, String>> dialog = new Dialog<>();
         dialog.setTitle("My Chat - Login");
         ButtonType loginButtonType = new ButtonType("Login", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
+        dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, CANCEL);
         // Create the username and password labels and fields
         GridPane grid = new GridPane();
         grid.setHgap(30);
@@ -44,7 +47,7 @@ public class ChatPopUp {
         Platform.runLater(() -> username.requestFocus());
 
         // Convert the result to a username-password-pair when the login button is clicked.
-        dialog.setResultConverter(dialogButton -> {
+        dialog.setResultConverter((ButtonType dialogButton) -> {
             if (dialogButton == loginButtonType) {
                 return new Pair<>(username.getText(), password.getText());
             }
@@ -56,7 +59,6 @@ public class ChatPopUp {
         result.ifPresent(usernamePassword -> {
             Authorization.userLogIn(usernamePassword.getKey(), usernamePassword.getValue());
         });
-
     }
 
     public static void alert(String msg) {

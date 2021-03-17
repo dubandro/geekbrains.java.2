@@ -36,20 +36,17 @@ public class ChatController implements Initializable {
         if (!Authorization.isAuthorize()) {
             onlineUsers.setOpacity(0.5);
             menuSignOut.setDisable(true);
+            menuSignIn.fire();
         }
     }
 
-    public void authorize() {
+    public void signIn(ActionEvent actionEvent) {
         if (!Authorization.isAuthorize()) ChatPopUp.loginDialog();
         if (Authorization.isAuthorize()) {
             onlineUsers.setOpacity(1.0);
             menuSignIn.setDisable(true);
             menuSignOut.setDisable(false);
         }
-    }
-
-    public void signIn(ActionEvent actionEvent) {
-        authorize();
     }
 
     public void signOut(ActionEvent actionEvent) {
