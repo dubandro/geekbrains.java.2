@@ -55,7 +55,6 @@ public class ChatController implements Initializable {
             onlineUsers.setOpacity(0.5);
             menuSignIn.setDisable(false);
             menuSignOut.setDisable(true);
-            ChatPopUp.alert("See You Soon...");
         }
     }
 

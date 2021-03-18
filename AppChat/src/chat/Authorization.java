@@ -17,5 +17,6 @@ public class Authorization {
 
     public static void userLogOut() {
         authorize = false;
+        ChatPopUp.alert("See You Soon...");
     }
 }
